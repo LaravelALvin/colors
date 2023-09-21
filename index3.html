@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CS3 - Colors</title>
+    </head>
+    <body>
+        
+        <br><hr><br>
+        <h2 class="time">Time Allocation: 5 mins</h2>
+        <h2 class="evaluation">Website Evaluation: non-graded</h2>
+        <p class="message">With your knowledge about the appropriate and effective use of colors in a website, evaluate
+            your choice of website that contains a topic, product, or company of your interest, using the
+            simple evaluation:</p>
+        
+        <center>
+            <form action="" id="frmSubmit">
+                <table style="border-spacing: 0px; border: 2px solid black; table-layout: fixed;">
+                    <tr>
+                        <td class="data">Name</td>
+                        <td id="name" style="padding-right: 50px;" contenteditable class="data answer"></td>
+                        
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; width: 50px;" class="data">Section</td>
+                        <td id="section" contenteditable class="data answer"></td>
+                    </tr>
+                    <tr>
+                        <td class="data">Name of the Website</td>
+                        <td id="website" colspan="3" contenteditable class="data answer"></td>
+                    </tr>
+                    <tr>
+                        <td class="data">Link</td>
+                        <td id="link" colspan="3" contenteditable class="data answer"></td>
+                    </tr>
+                    <tr>
+                        <td class="data">Browser/s used</td>
+                        <td id="browser" colspan="3" contenteditable class="data answer"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" class="data" colspan="2">Check the items that best describes the website’s design and layout:</td>
+                    </tr>
+                    <tr>
+                        <td pos class="data"><input id="1" class="check" type="checkbox" name="eight" value="true"></td>
+                        <td colspan="3" class="data answer">Do the colors or theme work well together?</td>
+                    </tr>
+                    <tr>
+                        <td class="data"><input id="2" class="check" type="checkbox" name="eight" value="true"></td>
+                        <td colspan="3" class="data answer">Are the elements “orchestrated properly”</td>
+                    </tr>
+                    <tr>
+                        <td class="data"><input id="3" class="check" type="checkbox" name="eight" value="true"></td>
+                        <td colspan="3" class="data answer">Is the product/company branding visually presented?</td>
+                    </tr>
+                    <tr>
+                        <td class="data"><input id="4" class="check" type="checkbox" name="eight" value="true"></td>
+                        <td colspan="3" class="data answer">Do the colors emulate the appropriate mood and feelings of the
+                            content?
+                            </td>
+                    </tr>
+                    <tr>
+                        <td class="data"><input id="5" class="check" type="checkbox" name="five" value="true"></td>
+                        <td colspan="3" class="data answer">Does the color palette used effectively follow the 60/30/10 Rule?</td>
+                    </tr>
+                    <tr>
+                        <td  class="data"><input id="6" class="check" type="checkbox" name="six" value="true"></td>
+                        <td colspan="3" class="data answer">Did the website use contrasting colors for its text and background?</td>
+                    </tr>
+                    <tr>
+                        <td  class="data"><input id="7" class="check" type="checkbox" name="seven" value="true"></td>
+                        <td colspan="3" class="data answer">Are the colors effectively used to separate certain sections or
+                            portions of the page?
+                            </td>
+                    </tr>
+                    <tr>
+                        <td  class="data"><input id="8" class="check" type="checkbox" name="eight" value="true"></td>
+                        <td colspan="3" class="data answer">Does the website have a consistent feel and appearance,
+                            emulating “wholeness”?
+                            </td>
+                    </tr>
+                </table>
+    
+                <br>
+                <input id="bntSubmit" style="--c: #de2803;--b: 5px;--s:12px" class="submit" type="submit" onclick="openModal()">
+                <br>
+                <br>
+
+            </form>
+
+             <!-- The Modal -->
+            <div id="confirmationModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <p>Are you sure you want to submit your answers?</p>
+                    <button onclick="confirmAction()">Yes</button>
+                    <button onclick="closeModal()">No</button>
+                </div>
+            </div>
+            
+            
+
+        </center>
+
+        
+    </body>
+</html>
+
+<script>
+    document.getElementById("frmSubmit").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+        });
+    // Get the modal element
+var modal = document.getElementById("confirmationModal");
+
+// Function to open the modal
+function openModal() {
+    modal.style.display = "block";
+}
+
+// Function to close the modal
+function closeModal() {
+    modal.style.display = "none";
+}
+
+// Function to confirm the action
+function confirmAction() {
+    // Add your action to perform here
+    send();
+    closeModal();
+}
+
+
+
+    window.onload = function(){
+        if(localStorage.getItem("name") != null){
+            
+            window.location.href = "answer.html";
+        }else{
+            
+        }
+        
+    }
+
+    function send(){
+        
+        var name = document.getElementById('name').innerHTML;
+        var section = document.getElementById('section').innerHTML;
+        var website = document.getElementById('website').innerHTML;
+        var browser = document.getElementById('browser').innerHTML;
+        var link = document.getElementById('link').innerHTML;
+        var one = document.getElementById('1');
+        var two = document.getElementById('2');
+        var three = document.getElementById('3');
+        var four = document.getElementById('4');
+        var five = document.getElementById('5');
+        var six = document.getElementById('6');
+        var seven = document.getElementById('7');
+        var eight = document.getElementById('8');
+
+        localStorage.setItem("name", name);
+        localStorage.setItem("section", section);
+        localStorage.setItem("website", website);
+        localStorage.setItem("browser", browser);
+        localStorage.setItem("link", link);
+        localStorage.setItem("one", one.checked);
+        localStorage.setItem("two", two.checked);
+        localStorage.setItem("three", three.checked);
+        localStorage.setItem("four", four.checked);
+        localStorage.setItem("five", five.checked);
+        localStorage.setItem("six", six.checked);
+        localStorage.setItem("seven", seven.checked);
+        localStorage.setItem("eight", eight.checked);
+
+        window.location.href = "answer.html";
+    }
+</script>
+
+
+
+<style>
+    body{
+        background-color: rgb(197, 217, 252);
+    }
+        .submit {
+    --b: 3px;   /* border thickness */
+    --s: .15em; /* size of the corner */
+    --c: #BD5532;
+    
+    padding: calc(.05em + var(--s)) calc(.3em + var(--s));
+    color: var(--c);
+    --_p: var(--s);
+    background:
+        conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--c) 0)
+        var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .2em;
+    }
+    .submit:hover,
+    .submit:focus-visible{
+    --_p: 0px;
+    outline-color: var(--c);
+    outline-offset: .05em;
+    }
+    .submit:active {
+    background: var(--c);
+    color: #fff;
+    }
+
+
+    .submit {
+    font-family: system-ui, sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    cursor: pointer;
+    border: none;
+    margin: .1em;
+    }
+    textarea{
+        text-decoration: none;
+    }
+
+    .data{
+        padding: 20px;
+        border: 2px solid black;
+    }
+
+    .answer{
+        padding-right: 20px;
+    }
+    html{
+        font-family: arial;
+    }
+
+    .message{
+        text-align: justify;
+        padding-left: 23%;
+        padding-right: 23%;
+    }
+
+    .time, .evaluation{
+        margin-left: 23%;
+        margin-top: -20px;
+    }
+
+    .check{
+        margin-left: 20px;
+        height: 40px;
+        width: 40px;
+    }
+
+    /* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Button styles */
+button {
+    padding: 10px 20px;
+    margin: 5px;
+}
+
+    
+</style>
